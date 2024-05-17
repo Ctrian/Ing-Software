@@ -1,0 +1,26 @@
+package com.uce.edu.repository.modelo;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "administrativo")
+public class Administrativo {
+	@Id
+	@SequenceGenerator(name = "seq_administrativo", sequenceName = "seq_administrativo", allocationSize = 1)
+	@GeneratedValue(generator = "seq_administrativo", strategy = GenerationType.SEQUENCE)
+	@Column(name = "admi_id")
+	private Integer id;
+	@Column(name = "admi_cedula")
+	private String cedula;
+	@Column(name = "admi_nombre")
+	private String nombre;
+	@Column(name = "admi_apellido")
+	private String apellido;
+	@Column(name = "admi_fecha_nacimiento")
+	private LocalDateTime fechaNacimiento;
+	@Column(name = "admi_genero")
+	private String genero;
+	@Column(name = "admi_registro")
+	private String registro;
+}

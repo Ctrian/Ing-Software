@@ -1,0 +1,48 @@
+package com.uce.edu.repository.modelo;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "curso")
+public class Curso {
+
+	@Id
+	@SequenceGenerator(name = "seq_curso", sequenceName = "seq_curso", allocationSize = 1)
+	@GeneratedValue(generator = "seq_curso", strategy = GenerationType.SEQUENCE)
+	@Column(name = "curs_id")
+	private Integer id;
+	@Column(name = "curs_nombre")
+	private String nombre;
+
+	// relaciones
+
+	// get y set
+	public Integer getId() {
+		return id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	// toString
+	@Override
+	public String toString() {
+		return "Curso [id=" + id + ", nombre=" + nombre + "]";
+	}
+
+}

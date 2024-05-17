@@ -1,0 +1,34 @@
+package com.uce.edu.repository.modelo;
+
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "material_escolar")
+public class MaterialEscolar {
+
+	@Id
+	@SequenceGenerator(name = "seq_material_escolar", sequenceName = "seq_material_escolar", allocationSize = 1)
+	@GeneratedValue(generator = "seq_material_escolar", strategy = GenerationType.SEQUENCE)
+	@Column(name = "maes_id")
+	private Integer id;
+	@Column(name = "maes_cedula")
+	private String cedula;
+	@Column(name = "maes_nombre")
+	private String nombre;
+	@Column(name = "maes_apellido")
+	private String apellido;
+	@Column(name = "maes_fecha_nacimiento")
+	private LocalDateTime fechaNacimiento;
+	@Column(name = "maes_genero")
+	private String genero;
+	@Column(name = "maes_registro")
+	private String registro;
+}

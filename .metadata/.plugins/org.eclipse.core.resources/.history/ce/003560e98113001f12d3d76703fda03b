@@ -1,0 +1,36 @@
+package com.uce.edu.repository.modelo;
+
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "horario")
+public class Horario {
+
+	@Id
+	@SequenceGenerator(name = "seq_horario", sequenceName = "seq_horario", allocationSize = 1)
+	@GeneratedValue(generator = "seq_horario", strategy = GenerationType.SEQUENCE)
+	@Column(name = "hora_id")
+	private Integer id;
+	@Column(name = "hora_cedula")
+	private String cedula;
+	@Column(name = "hora_nombre")
+	private String nombre;
+	@Column(name = "hora_apellido")
+	private String apellido;
+	@Column(name = "hora_fecha_periodo")
+	private LocalDateTime fechaPeriodo;
+	@Column(name = "hora_tipo_pension")
+	private String tipoPension;
+
+	@Column(name = "hora_registro")
+	private String registro;
+
+}

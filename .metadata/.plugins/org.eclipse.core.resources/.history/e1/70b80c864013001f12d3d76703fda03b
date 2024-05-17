@@ -1,0 +1,27 @@
+package com.uce.edu.repository.modelo;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "curso")
+public class Curso {
+
+	@Id
+	@SequenceGenerator(name = "seq_curso", sequenceName = "seq_curso", allocationSize = 1)
+	@GeneratedValue(generator = "seq_curso", strategy = GenerationType.SEQUENCE)
+	@Column(name = "curs_id")
+	private Integer id;
+	@Column(name = "curs_cedula")
+	private String cedula;
+	@Column(name = "curs_nombre")
+	private String nombre;
+	@Column(name = "curs_apellido")
+	private String apellido;
+	@Column(name = "curs_fecha_nacimiento")
+	private LocalDateTime fechaNacimiento;
+	@Column(name = "curs_genero")
+	private String genero;
+	@Column(name = "curs_registro")
+	private String registro;
+}

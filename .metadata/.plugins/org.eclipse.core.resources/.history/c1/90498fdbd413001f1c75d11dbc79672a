@@ -1,0 +1,19 @@
+package com.uce.edu.repository.modelo;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "prof_admi")
+public class Prof_Admi {
+	@Id
+	@SequenceGenerator(name = "seq_prof_admin", sequenceName = "seq_prof_admin", allocationSize = 1)
+	@GeneratedValue(generator = "seq_prof_admin", strategy = GenerationType.SEQUENCE)
+	@Column(name = "prof_admin_id")
+	private Integer id;
+}

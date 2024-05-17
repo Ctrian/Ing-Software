@@ -1,0 +1,101 @@
+package com.uce.edu.repository.modelo;
+
+import java.time.LocalDateTime;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+
+// tabla de rompimiento para estudiante y aula
+
+@Entity
+@Table(name = "horario")
+public class Horario {
+
+	@Id
+	@SequenceGenerator(name = "seq_horario", sequenceName = "seq_horario", allocationSize = 1)
+	@GeneratedValue(generator = "seq_horario", strategy = GenerationType.SEQUENCE)
+	@Column(name = "horario_id")
+	private Integer id;
+
+	// relaciones
+	@ManyToOne(cascade = CascadeType.ALL)
+	// tabla de rompimiento
+	@JoinColumn(name = "horario_id_profesor")
+	private Profesor profesor;
+
+	@JoinColumn(name = "horario_id_materia")
+	private Materia materia;
+// relaciones
+
+	// get y set
+	public Integer getId() {
+		return id;
+	}
+
+	public String getCedula() {
+		return cedula;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public LocalDateTime getFechaPeriodo() {
+		return fechaPeriodo;
+	}
+
+	public String getTipoPension() {
+		return tipoPension;
+	}
+
+	public String getRegistro() {
+		return registro;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setCedula(String cedula) {
+		this.cedula = cedula;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public void setFechaPeriodo(LocalDateTime fechaPeriodo) {
+		this.fechaPeriodo = fechaPeriodo;
+	}
+
+	public void setTipoPension(String tipoPension) {
+		this.tipoPension = tipoPension;
+	}
+
+	public void setRegistro(String registro) {
+		this.registro = registro;
+	}
+
+	// toString
+	@Override
+	public String toString() {
+		return "Horario [id=" + id + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido
+				+ ", fechaPeriodo=" + fechaPeriodo + ", tipoPension=" + tipoPension + ", registro=" + registro + "]";
+	}
+}

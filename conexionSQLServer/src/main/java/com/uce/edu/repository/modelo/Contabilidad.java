@@ -1,12 +1,17 @@
 package com.uce.edu.repository.modelo;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -23,14 +28,21 @@ public class Contabilidad {
 	private String descripcion;
 	@Column(name = "contabilidad_monto")
 	private String monto;
-	@Column(name = "contabilidad_fecha")
+	@Column(name = "conta_fecha")
 	private LocalDateTime fecha;
-	@Column(name = "contabilidad_estado_transaccion")
+	@Column(name = "conta_estado_transaccion")
 	private String estadoTransaccion;
-	@Column(name = "contabilidad_metodo_pago")
+	@Column(name = "conta_metodo_pago")
 	private String metodo_pago;
 
 	// relaciones
+	@OneToMany(mappedBy = "contabilidad", cascade = CascadeType.ALL)
+	private List<PagoPension> pagoPensions;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	// tabla de rompimiento en la entidad secundaria
+	@JoinColumn(name = "conta_id_administracion")
+	private Administracion administracion;
 
 	// get y set
 	public Integer getId() {
@@ -82,9 +94,4 @@ public class Contabilidad {
 	}
 
 	// toString
-	@Override
-	public String toString() {
-		return "Contabilidad [id=" + id + ", descripcion=" + descripcion + ", monto=" + monto + ", fecha=" + fecha
-				+ ", estadoTransaccion=" + estadoTransaccion + ", metodo_pago=" + metodo_pago + "]";
-	}
 }

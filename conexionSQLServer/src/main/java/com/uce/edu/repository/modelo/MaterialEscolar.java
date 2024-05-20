@@ -2,11 +2,14 @@ package com.uce.edu.repository.modelo;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -31,6 +34,14 @@ public class MaterialEscolar {
 	private String registro;
 
 	// relaciones
+	@ManyToOne(cascade = CascadeType.ALL)
+	// aquí va tabla de rompimiento
+	@JoinColumn(name = "maes_id_profesor")
+	private Profesor profesor;
+
+	@ManyToOne
+	@JoinColumn(name = "maes_id_estudiante")
+	private Estudiante estudiante;
 
 	// get y set
 	public Integer getId() {
@@ -82,9 +93,5 @@ public class MaterialEscolar {
 	}
 
 	// toString
-	@Override
-	public String toString() {
-		return "MaterialEscolar [id=" + id + ", nombre=" + nombre + ", tipo_pension=" + tipo_pension + ", apellido="
-				+ apellido + ", fechaEntrega=" + fechaEntrega + ", registro=" + registro + "]";
-	}
+
 }

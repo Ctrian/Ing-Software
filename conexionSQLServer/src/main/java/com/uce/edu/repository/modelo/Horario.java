@@ -20,46 +20,43 @@ public class Horario {
 	@Id
 	@SequenceGenerator(name = "seq_horario", sequenceName = "seq_horario", allocationSize = 1)
 	@GeneratedValue(generator = "seq_horario", strategy = GenerationType.SEQUENCE)
-	@Column(name = "horario_id")
+	@Column(name = "hora_id")
 	private Integer id;
 
 	// relaciones
-//	@ManyToOne(cascade = CascadeType.ALL)
-//	// tabla de rompimiento
-//	@JoinColumn(name = "horario_id_profesor")
-//	private Profesor profesor;
+	@ManyToOne(cascade = CascadeType.ALL)
+	// aquí va tabla de rompimiento
+	@JoinColumn(name = "hora_id_profesor")
+	private Profesor profesor;
 
-	// @JoinColumn(name = "horario_id_materia")
-	// private Materia materia;
+	@ManyToOne
+	@JoinColumn(name = "hora_id_materia")
+	private Materia materia;
 
 	// get y set
 	public Integer getId() {
 		return id;
 	}
 
-//	public Profesor getProfesor() {
-//		return profesor;
-//	}
+	public Profesor getProfesor() {
+		return profesor;
+	}
 
-//	public Materia getMateria() {
-//		return materia;
-//	}
+	public Materia getMateria() {
+		return materia;
+	}
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-//	public void setProfesor(Profesor profesor) {
-//		this.profesor = profesor;
-//	}
+	public void setProfesor(Profesor profesor) {
+		this.profesor = profesor;
+	}
 
-//	public void setMateria(Materia materia) {
-//		this.materia = materia;
-//	}
+	public void setMateria(Materia materia) {
+		this.materia = materia;
+	}
 
 	// toString
-//	@Override
-//	public String toString() {
-//		return "Horario [id=" + id + ", profesor=" + profesor + ", materia=" + "]";
-//	}
 }

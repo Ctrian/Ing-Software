@@ -1,12 +1,17 @@
 package com.uce.edu.repository.modelo;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -31,6 +36,13 @@ public class Comida {
 	private String registro;
 
 	// relaciones
+	@OneToMany(mappedBy = "comida", cascade = CascadeType.ALL)
+	private List<PagoPension> pagoPensions;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	// tabla de rompimiento en la entidad secundaria
+	@JoinColumn(name = "comi_id_estudiante")
+	private Estudiante estudiante;
 
 	// get y set
 	public Integer getId() {
@@ -82,10 +94,4 @@ public class Comida {
 	}
 
 	// toString
-	@Override
-	public String toString() {
-		return "Comida [id=" + id + ", tipo_pension=" + tipo_pension + ", nombre=" + nombre + ", fechaEntrega="
-				+ fechaEntrega + ", lugarEntrega=" + lugarEntrega + ", registro=" + registro + "]";
-	}
-
 }

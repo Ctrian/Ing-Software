@@ -2,11 +2,14 @@ package com.uce.edu.repository.modelo;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -37,6 +40,13 @@ public class PlanEstudio {
 	private String requisitosGraduacion;
 
 	// relaciones
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "plan_id_administracion")
+	private Administracion administracion;
+
+	@ManyToOne
+	@JoinColumn(name = "plan_id_representante")
+	private Representante representante;
 
 	// get y set
 	public Integer getId() {
@@ -112,10 +122,4 @@ public class PlanEstudio {
 	}
 
 	// toString
-	@Override
-	public String toString() {
-		return "PlanEstudio [id=" + id + ", tipoPension=" + tipoPension + ", anioAcademico=" + anioAcademico
-				+ ", nombre=" + nombre + ", descripcion=" + descripcion + ", costo=" + costo + ", fechaInicio="
-				+ fechaInicio + ", fechaFin=" + fechaFin + ", requisitosGraduacion=" + requisitosGraduacion + "]";
-	}
 }

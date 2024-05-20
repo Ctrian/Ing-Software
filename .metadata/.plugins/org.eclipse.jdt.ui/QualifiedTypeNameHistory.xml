@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.uce.edu.funcional.IPersonaUnaryOperatorFunction"/>
-    <fullyQualifiedTypeName name="java.util.function.Supplier"/>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
-    <fullyQualifiedTypeName name="java.util.stream.Stream"/>
-    <fullyQualifiedTypeName name="com.uce.edu.funcional.Ciudadano"/>
     <fullyQualifiedTypeName name="com.uce.edu.funcional.Empleado"/>
     <fullyQualifiedTypeName name="java.util.concurrent.TimeUnit"/>
     <fullyQualifiedTypeName name="com.uce.edu.ventas.repository.modelo.Cliente"/>
@@ -20,15 +15,12 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="com.uce.edu.repository.modelo.Vuelo"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.JoinColumn"/>
     <fullyQualifiedTypeName name="jakarta.transaction.Transactional.TxType"/>
     <fullyQualifiedTypeName name="com.uce.edu.service.EstudianteServiceImpl"/>
     <fullyQualifiedTypeName name="com.uce.edu.service.MateriaServiceImpl"/>
     <fullyQualifiedTypeName name="com.uce.edu.service.IMateriaService"/>
     <fullyQualifiedTypeName name="com.uce.edu.repository.modelo.MatriculaTemporal"/>
     <fullyQualifiedTypeName name="com.uce.edu.repository.modelo.MatricularEstudiante"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.ManyToOne"/>
     <fullyQualifiedTypeName name="com.uce.edu.service.IEstudianteService"/>
     <fullyQualifiedTypeName name="java.math.BigDecimal"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
@@ -39,8 +31,6 @@
     <fullyQualifiedTypeName name="com.uce.edu.repository.IMatriculaRepository"/>
     <fullyQualifiedTypeName name="com.uce.edu.repository.IMateriaRepository"/>
     <fullyQualifiedTypeName name="com.uce.edu.repository.IEstudianteRepository"/>
-    <fullyQualifiedTypeName name="com.uce.edu.repository.modelo.Estudiante"/>
-    <fullyQualifiedTypeName name="com.uce.edu.repository.modelo.Materia"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.lang.Thread"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
@@ -48,7 +38,6 @@
     <fullyQualifiedTypeName name="com.uce.edu.service.IMatriculaService"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="com.uce.edu.repository.modelo.dto.MatriculaDTO"/>
@@ -57,7 +46,18 @@
     <fullyQualifiedTypeName name="jakarta.transaction.Transactional"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
     <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.CascadeType"/>
+    <fullyQualifiedTypeName name="com.uce.edu.repository.modelo.Estudiante"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.JoinColumn"/>
+    <fullyQualifiedTypeName name="com.uce.edu.repository.modelo.Profesor"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
+    <fullyQualifiedTypeName name="com.uce.edu.repository.modelo.Administrativo"/>
+    <fullyQualifiedTypeName name="com.uce.edu.repository.modelo.Materia"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.uce.edu.repository.modelo.Horario"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
+    <fullyQualifiedTypeName name="com.uce.edu.repository.modelo.Curso"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.ManyToOne"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
 </qualifiedTypeNameHistroy>

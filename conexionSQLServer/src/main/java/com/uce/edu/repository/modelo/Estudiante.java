@@ -1,12 +1,16 @@
 package com.uce.edu.repository.modelo;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -32,10 +36,33 @@ public class Estudiante {
 	@Column(name = "estu_registro")
 	private String registro;
 
-//	// relaciones
-//	//@ManyToOne
-//	//private Curso curso;
-//	
+	// relaciones
+	@OneToMany(mappedBy = "estudiante", cascade = CascadeType.ALL)
+	private List<Curso> cursos;
+
+	@OneToMany(mappedBy = "estudiante")
+	private List<MaterialEscolar> materiales;
+
+	@OneToMany(mappedBy = "estudiante")
+	private List<Reporte> reportes;
+
+	@OneToMany(mappedBy = "estudiante", cascade = CascadeType.ALL)
+	private List<Asistencia> asistencias;
+
+	@OneToMany(mappedBy = "estudiante", cascade = CascadeType.ALL)
+	private List<Examen> examens;
+
+	@OneToMany(mappedBy = "estudiante", cascade = CascadeType.ALL)
+	private List<Calificacion> calificacions;
+
+	///////////////////////////////////////////////////////////////
+
+	@OneToOne(mappedBy = "estudiante", cascade = CascadeType.ALL)
+	private Comida comida;
+
+	@OneToOne(mappedBy = "estudiante", cascade = CascadeType.ALL)
+	private Taller taller;
+
 	// get y set
 	public Integer getId() {
 		return id;
@@ -92,11 +119,7 @@ public class Estudiante {
 	public void setRegistro(String registro) {
 		this.registro = registro;
 	}
-//
-//	// toString
-//	@Override
-//	public String toString() {
-//		return "Estudiante [id=" + id + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido
-//				+ ", fechaNacimiento=" + fechaNacimiento + ", genero=" + genero + ", registro=" + registro + "]";
-//	}
+
+	// toString
+
 }

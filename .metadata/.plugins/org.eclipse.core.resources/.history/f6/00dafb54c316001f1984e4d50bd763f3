@@ -1,0 +1,37 @@
+package com.uce.edu.repository.modelo;
+
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "taller")
+public class Taller {
+	@Id
+	@SequenceGenerator(name = "seq_taller", sequenceName = "seq_taller", allocationSize = 1)
+	@GeneratedValue(generator = "seq_taller", strategy = GenerationType.SEQUENCE)
+
+	@Column(name = "tall_id")
+	private Integer id;
+
+	@Column(name = "tall_nombre")
+	private String nombre;
+
+	@Column(name = "tall_descripcion")
+	private String descripcion;
+
+	@Column(name = "tall_fecha")
+	private LocalDateTime fecha;
+
+	@Column(name = "tall_hora")
+	private String hora;
+
+	@Column(name = "tall_lugar")
+	private String lugar;
+}

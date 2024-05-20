@@ -2,11 +2,14 @@ package com.uce.edu.repository.modelo;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -41,6 +44,10 @@ public class RRHH {
 	private LocalDateTime fechaContratacion;
 
 	// relaciones
+	@ManyToOne(cascade = CascadeType.ALL)
+	// tabla de rompimiento en la entidad secundaria
+	@JoinColumn(name = "rrhh_id_rector")
+	private Rector rector;
 
 	// get y set
 	public Integer getId() {

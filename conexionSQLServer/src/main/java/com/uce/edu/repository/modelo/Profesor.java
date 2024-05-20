@@ -1,12 +1,15 @@
 package com.uce.edu.repository.modelo;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -33,6 +36,17 @@ public class Profesor {
 	private String registro;
 
 	// relaciones
+	@OneToMany(mappedBy = "profesor", cascade = CascadeType.ALL)
+	private List<Horario> horarios;
+
+	@OneToMany(mappedBy = "profesor", cascade = CascadeType.ALL)
+	private List<MaterialEscolar> materiales;
+
+	@OneToMany(mappedBy = "profesor", cascade = CascadeType.ALL)
+	private List<Reporte> reportes;
+
+	@OneToMany(mappedBy = "profesor")
+	private List<Admi_Prof> admi_Profs;
 
 	// get y set
 	public Integer getId() {

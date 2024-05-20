@@ -2,15 +2,16 @@ package com.uce.edu.repository.modelo;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
-
-// tabla de rompimiento entre estudiante y administrativo
 
 @Entity
 @Table(name = "asistencia")
@@ -33,6 +34,10 @@ public class Asistencia {
 	private boolean asiste;
 
 	// relaciones
+	@ManyToOne(cascade = CascadeType.ALL)
+	// tabla de rompimiento en la entidad secundaria
+	@JoinColumn(name = "asis_id_estudiante")
+	private Estudiante estudiante;
 
 	// get y set
 	public Integer getId() {

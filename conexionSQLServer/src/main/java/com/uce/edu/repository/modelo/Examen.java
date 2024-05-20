@@ -2,11 +2,14 @@ package com.uce.edu.repository.modelo;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -27,41 +30,54 @@ public class Examen {
 	private LocalDateTime fecha;
 	@Column(name = "exam_registro")
 	private String registro;
-	
+
 	// relaciones
-	
+	@ManyToOne(cascade = CascadeType.ALL)
+	// tabla de rompimiento en la entidad secundaria
+	@JoinColumn(name = "exam_id_estudiante")
+	private Estudiante estudiante;
+
 	// get y set
 	public Integer getId() {
 		return id;
 	}
+
 	public int getDuracion() {
 		return duracion;
 	}
+
 	public int getPuntaje() {
 		return puntaje;
 	}
+
 	public LocalDateTime getFecha() {
 		return fecha;
 	}
+
 	public String getRegistro() {
 		return registro;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public void setDuracion(int duracion) {
 		this.duracion = duracion;
 	}
+
 	public void setPuntaje(int puntaje) {
 		this.puntaje = puntaje;
 	}
+
 	public void setFecha(LocalDateTime fecha) {
 		this.fecha = fecha;
 	}
+
 	public void setRegistro(String registro) {
 		this.registro = registro;
 	}
-	
+
 	// toString
 	@Override
 	public String toString() {

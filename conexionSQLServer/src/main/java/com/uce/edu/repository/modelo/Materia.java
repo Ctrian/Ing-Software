@@ -1,10 +1,13 @@
 package com.uce.edu.repository.modelo;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -23,11 +26,11 @@ public class Materia {
 	private String registro;
 
 	// relaciones
-	// @OneToMany
-	// private List<Curso> cursos;
+	@OneToMany(mappedBy = "materia")
+	private List<Curso> cursos;
 
-	// @OneToMany
-	// private List<Horario> horarios;
+	@OneToMany(mappedBy = "materia")
+	private List<Horario> horarios;
 
 	// get y set
 	public Integer getId() {
@@ -55,9 +58,4 @@ public class Materia {
 	}
 
 	// toString
-	@Override
-	public String toString() {
-		return "Materia [id=" + id + ", nombre=" + nombre + ", registro=" + registro + "]";
-	}
-
 }

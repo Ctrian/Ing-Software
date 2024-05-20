@@ -1,12 +1,14 @@
 package com.uce.edu.repository.modelo;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -33,6 +35,11 @@ public class Representante {
 	private String registro;
 
 	// relaciones
+	@OneToMany(mappedBy = "representante")
+	private List<PlanEstudio> planEstudios;
+
+	@OneToMany(mappedBy = "representante")
+	private List<PagoPension> pagoPensions;
 
 	// get y set
 	public Integer getId() {
@@ -92,9 +99,4 @@ public class Representante {
 	}
 
 	// toString
-	@Override
-	public String toString() {
-		return "Representante [id=" + id + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido
-				+ ", fechaNacimiento=" + fechaNacimiento + ", genero=" + genero + ", registro=" + registro + "]";
-	}
 }

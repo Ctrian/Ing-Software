@@ -1,10 +1,13 @@
 package com.uce.edu.repository.modelo;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -25,6 +28,10 @@ public class Biblioteca {
 	private String registro;
 
 	// relaciones
+	@OneToOne(cascade = CascadeType.ALL)
+	// tabla de rompimiento en la entidad secundaria
+	@JoinColumn(name = "bibl_id_rector")
+	private Rector rector;
 
 	// get y set
 	public Integer getId() {

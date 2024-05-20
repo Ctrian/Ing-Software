@@ -1,10 +1,13 @@
 package com.uce.edu.repository.modelo;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -21,13 +24,14 @@ public class Curso {
 	private String nombre;
 
 	// relaciones
-//	@ManyToOne(cascade = CascadeType.ALL)
-//	// tabla de rompimiento
-//	@JoinColumn(name = "curs_id_estu")
-	// private Estudiante estudiante;
+	@ManyToOne(cascade = CascadeType.ALL)
+	// aquí tengo la tabla de rompimiento
+	@JoinColumn(name = "curs_id_estu")
+	private Estudiante estudiante;
 
-	// @JoinColumn(name = "curs_id_materia")
-	// private Materia materia;
+	@ManyToOne
+	@JoinColumn(name = "curs_id_mate")
+	private Materia materia;
 
 	// get y set
 	public Integer getId() {
@@ -63,9 +67,4 @@ public class Curso {
 //	}
 
 	// toString
-	@Override
-	public String toString() {
-		return "Curso [id=" + id + ", nombre=" + nombre + "]";
-	}
-
 }
